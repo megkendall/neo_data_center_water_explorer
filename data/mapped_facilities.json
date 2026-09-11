@@ -1,0 +1,72 @@
+{
+  "_notes": "Derived this session, not part of the frozen canonical datasets. Coordinates came from Google Places geocoding of the street addresses recorded in facilities_master_v1_FINAL.csv notes. Only 8 of 21 facilities have a real street address on file; the rest genuinely have none. Two caveats before using in production: (1) Bitdeer Shalersville's address geocoded to a 'Mantua, OH' postal city rather than 'Shalersville' -- this is a normal rural-USPS quirk, but verify against the actual site plan before publishing. (2) x/y screen coordinates for facilities 4-7 (the Akron-area cluster) were manually nudged apart by a few pixels for click targets; their true positions are close enough to visually overlap at map scale. lat/lon values themselves are unmodified and accurate.",
+  "projection": {
+    "type": "linear, not a real basemap",
+    "lonMin": -82.74, "lonMax": -81.21, "latMin": 40.74, "latMax": 41.53,
+    "svgX": "40 + (lon - lonMin) / (lonMax - lonMin) * 600",
+    "svgY": "40 + (latMax - lat) / (latMax - latMin) * 340"
+  },
+  "facilities": [
+    {
+      "id": 1, "name": "H5 Cleveland", "status": "operating",
+      "lat": 41.5067004, "lon": -81.6830495,
+      "capacity_mw": 10, "capacity_type": "existing utility feeds",
+      "nearest_standardized_tier_mw": 50,
+      "water_provider_status": "not publicly found",
+      "note": "disclosed capacity (10 MW) is below the smallest standardized tier (50 MW) -- real mismatch, surface it, don't hide it"
+    },
+    {
+      "id": 2, "name": "Aligned NEO-01", "status": "operating",
+      "lat": 41.4301723, "lon": -82.7192027,
+      "capacity_mw": 96, "capacity_type": "fully built-out power (secondary source)",
+      "nearest_standardized_tier_mw": 50,
+      "water_provider_status": "not publicly found"
+    },
+    {
+      "id": 3, "name": "Bitdeer Shalersville", "status": "proposed",
+      "lat": 41.2506938, "lon": -81.2346601,
+      "capacity_mw": 150, "capacity_type": "Phase 1 electrical capacity",
+      "nearest_standardized_tier_mw": 150,
+      "disclosed_full_buildout_mw": 750,
+      "disclosed_full_buildout_note": "independently equal to the model's own 750 MW tier -- keep textually distinct per CLAUDE.md guardrail",
+      "water_provider_status": "reported_site_provider",
+      "water_system_id": "PORT_SHALERSVILLE"
+    },
+    {
+      "id": 4, "name": "Viking Data Centers Akron", "status": "operating",
+      "lat": 41.0501045, "lon": -81.4738965,
+      "capacity_mw": 150, "capacity_type": "delivered facility electrical power",
+      "nearest_standardized_tier_mw": 150,
+      "water_provider_status": "not publicly found"
+    },
+    {
+      "id": 5, "name": "Lumen Akron 2", "status": "operating",
+      "lat": 41.069237, "lon": -81.4911505,
+      "capacity_mw": null, "capacity_type": null,
+      "nearest_standardized_tier_mw": null,
+      "water_provider_status": "not publicly found"
+    },
+    {
+      "id": 6, "name": "FairlawnGig", "status": "operating",
+      "lat": 41.1332031, "lon": -81.6294432,
+      "capacity_mw": null, "capacity_type": null,
+      "nearest_standardized_tier_mw": null,
+      "water_provider_status": "not publicly found"
+    },
+    {
+      "id": 7, "name": "Bay Pointe Tech", "status": "operating",
+      "lat": 41.208483, "lon": -81.6388053,
+      "capacity_mw": null, "capacity_type": null,
+      "nearest_standardized_tier_mw": null,
+      "water_provider_status": "not publicly found",
+      "note": "operator website now lists a different (Medina) address -- flagged discrepancy in facilities_master notes"
+    },
+    {
+      "id": 8, "name": "Bitdeer Massillon", "status": "operating",
+      "lat": 40.769067, "lon": -81.538265,
+      "capacity_mw": 174, "capacity_type": "online electrical capacity (221 MW total planned)",
+      "nearest_standardized_tier_mw": 150,
+      "water_provider_status": "not publicly found"
+    }
+  ]
+}

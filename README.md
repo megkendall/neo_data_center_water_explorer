@@ -54,12 +54,3 @@ the site itself.
 - [react-leaflet](https://react-leaflet.js.org/) + OpenStreetMap for the
   interactive map
 - Deployed on [Vercel](https://vercel.com/)
-
-## Running locally
-
-```bash
-npm install
-npm run dev
-```
-
-Then open [http://localhost:3000](http://localhost:3000).

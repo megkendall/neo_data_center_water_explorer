@@ -6,10 +6,6 @@ A public, Vercel-hosted scrollytelling site that walks a reader through
 a Story Spine narrative about data center water demand in Northeast
 Ohio, ending on an interactive scenario explorer (map + calculator).
 
-This is a portfolio piece. It will be read by strangers, including
-potential employers, with no other context. Every claim must hold up on
-its own.
-
 ## Source of truth, in priority order
 
 1. `/content/story-spine.md` — the finalized narrative. Use this text

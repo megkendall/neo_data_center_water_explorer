@@ -16,8 +16,15 @@
 //      disclosed" -- never as 0 or a blank that could read as 0.
 
 import { useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import mapped from "../data/mapped_facilities.json";
 import styles from "./scenario-explorer.module.css";
+
+// Leaflet needs direct browser/DOM access, so the map is loaded client-only.
+const FacilityMap = dynamic(() => import("./facility-map"), {
+  ssr: false,
+  loading: () => <div className={styles.mapLoading}>Loading map…</div>,
+});
 
 // Keep in sync with /data/water_systems_master.csv
 const WATER_SYSTEMS = {
@@ -40,15 +47,6 @@ const INTENSITY_TIERS = [
 
 function modeledMgd(mw, lPerKwh) {
   return mw * lPerKwh * 0.00634013;
-}
-
-// Projection formula from /data/mapped_facilities.json's "projection"
-// field, implemented as code instead of eval'd from its formula strings.
-const { lonMin, lonMax, latMin, latMax } = mapped.projection;
-function project(lat, lon) {
-  const x = 40 + ((lon - lonMin) / (lonMax - lonMin)) * 600;
-  const y = 40 + ((latMax - lat) / (latMax - latMin)) * 340;
-  return { x, y };
 }
 
 export default function ScenarioExplorer() {
@@ -84,31 +82,11 @@ export default function ScenarioExplorer() {
   return (
     <div className={styles.explorer}>
       <div className={styles.mapPane}>
-        <svg
-          viewBox="0 0 680 420"
-          className={styles.map}
-          role="img"
-          aria-label="Map of 8 Northeast Ohio data center facilities with documented street addresses, plotted on a linear projection (not a real basemap)."
-        >
-          {mapped.facilities.map((f) => {
-            const { x, y } = project(f.lat, f.lon);
-            const isSelected = f.id === selectedFacilityId;
-            return (
-              <g
-                key={f.id}
-                transform={`translate(${x}, ${y})`}
-                className={styles.marker}
-                onMouseEnter={() => selectFacility(f)}
-                onClick={() => selectFacility(f)}
-              >
-                <circle
-                  r={isSelected ? 9 : 6}
-                  className={isSelected ? styles.markerDotSelected : styles.markerDot}
-                />
-              </g>
-            );
-          })}
-        </svg>
+        <FacilityMap
+          facilities={mapped.facilities}
+          selectedFacilityId={selectedFacilityId}
+          onSelectFacility={selectFacility}
+        />
 
         <div className={styles.facilityList} role="list" aria-label="Select a facility">
           {mapped.facilities.map((f) => (
@@ -127,17 +105,15 @@ export default function ScenarioExplorer() {
         </div>
 
         <p className={styles.mapCaption}>
-          Linear projection, not a real basemap. Showing the 8 of 21
-          facilities with a documented street address on file — the other
-          13 genuinely have none publicly recorded. Bitdeer
-          Shalersville&rsquo;s marker is geocoded to a &ldquo;Mantua,
+          Showing the 8 of 21 facilities with a documented street address on
+          file — the other 13 genuinely have none publicly recorded.
+          Bitdeer Shalersville&rsquo;s marker is geocoded to a &ldquo;Mantua,
           OH&rdquo; postal address (a rural ZIP-routing quirk), not
           &ldquo;Shalersville&rdquo; itself — treat its exact position as
           approximate pending verification against the site plan. The four
           Akron-area points (Viking Data Centers Akron, Lumen Akron 2,
-          FairlawnGig, Bay Pointe Tech) sit close enough together that they
-          may visually overlap at this scale; use the list above to select
-          any of them precisely.
+          FairlawnGig, Bay Pointe Tech) sit close together — pan or zoom in,
+          or use the list above to select any of them precisely.
         </p>
       </div>
 

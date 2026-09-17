@@ -92,6 +92,10 @@
   color: var(--foreground);
 }
 
+.closingText a {
+  text-decoration: underline;
+}
+
 .closingText + .closingText {
   margin-top: 1.25rem;
 }

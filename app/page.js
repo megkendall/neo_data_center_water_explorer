@@ -247,6 +247,14 @@ export default function Home() {
             datasets as the source of truth and repeatedly checked the work
             for accuracy, consistency, completeness, and validity.
           </p>
+          <p className={styles.closingText}>
+            The full analysis — including the working notebook and source
+            data — is available in the{" "}
+            <a href="https://github.com/megkendall/neo_data_center_water_analysis">
+              analysis repository
+            </a>
+            .
+          </p>
         </div>
       </section>
     </main>

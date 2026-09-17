@@ -43,19 +43,26 @@
   justify-content: center;
 }
 
-.beatNumber {
-  font-size: 8rem;
-  font-weight: 600;
-  color: #d9d9d9;
+.finale {
+  padding: 6rem 1.5rem 7rem;
+  background: var(--finale-background);
+}
+
+.finaleIntro {
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.finaleIntro em {
+  font-style: italic;
 }
 
 @media (prefers-color-scheme: dark) {
   .beat {
     border-bottom-color: #262626;
-  }
-
-  .beatNumber {
-    color: #262626;
   }
 }
 
@@ -66,5 +73,14 @@
 
   .beatText {
     font-size: 1.1rem;
+  }
+
+  .finale {
+    padding: 4rem 1.25rem 5rem;
+  }
+
+  .finaleIntro {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
   }
 }

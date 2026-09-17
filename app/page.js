@@ -2,6 +2,19 @@
 
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
+import {
+  WaterSystemsVisual,
+  FacilitiesVisual,
+  BenchmarkVisual,
+  ShalersvilleVisual,
+} from "./beat-visuals";
+
+const BEAT_VISUALS = {
+  1: WaterSystemsVisual,
+  2: FacilitiesVisual,
+  3: BenchmarkVisual,
+  4: ShalersvilleVisual,
+};
 
 export default function Home() {
   const [activeBeat, setActiveBeat] = useState(1);
@@ -27,6 +40,8 @@ export default function Home() {
 
     return () => observer.disconnect();
   }, []);
+
+  const ActiveVisual = BEAT_VISUALS[activeBeat];
 
   return (
     <main className={styles.layout}>
@@ -122,10 +137,12 @@ export default function Home() {
       </div>
 
       <div className={styles.visualColumn}>
-        <div className={styles.stickyPanel}>
-          <span className={styles.beatNumber} aria-live="polite">
-            {activeBeat}
-          </span>
+        <div className={styles.stickyPanel} aria-live="polite">
+          {ActiveVisual ? (
+            <ActiveVisual />
+          ) : (
+            <span className={styles.beatNumber}>{activeBeat}</span>
+          )}
         </div>
       </div>
     </main>

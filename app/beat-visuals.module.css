@@ -1,0 +1,145 @@
+.inner {
+  width: 100%;
+  max-width: 440px;
+  padding: 0 1.5rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--foreground);
+}
+
+/* Beat 1: water systems list */
+
+.systemList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.systemRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.systemName {
+  font-size: 0.9rem;
+  color: var(--foreground);
+}
+
+.systemType {
+  font-size: 0.8rem;
+  color: #757575;
+}
+
+/* Beat 2: facilities table */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.table tr {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table td {
+  padding: 0.6rem 0;
+}
+
+.tableName {
+  color: var(--foreground);
+}
+
+.tableStatus {
+  text-align: right;
+  color: #757575;
+  white-space: nowrap;
+}
+
+.footnote {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #757575;
+}
+
+/* Beats 3 & 4: SVG charts */
+
+.chart {
+  width: 100%;
+  height: auto;
+}
+
+.tierBar {
+  fill: #4a4a4a;
+}
+
+.tierLabel {
+  font-size: 11px;
+  fill: var(--foreground);
+}
+
+.awsLine {
+  stroke: #c0392b;
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+.equinixBand {
+  fill: #c0392b;
+  opacity: 0.15;
+}
+
+.legendLabel {
+  font-size: 10px;
+  fill: #757575;
+}
+
+.compareLabel {
+  font-size: 11px;
+  fill: var(--foreground);
+}
+
+.compareValue {
+  font-size: 11px;
+  fill: var(--foreground);
+  font-weight: 600;
+}
+
+.modeledBar {
+  fill: #4a4a4a;
+}
+
+.capacityBar {
+  fill: #9a9a9a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .systemRow,
+  .table tr {
+    border-bottom-color: #262626;
+  }
+
+  .tierBar,
+  .modeledBar {
+    fill: #d9d9d9;
+  }
+
+  .capacityBar {
+    fill: #6b6b6b;
+  }
+
+  .tierLabel,
+  .compareLabel,
+  .compareValue {
+    fill: #ededed;
+  }
+}

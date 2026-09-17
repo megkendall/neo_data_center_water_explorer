@@ -67,9 +67,42 @@
   font-style: italic;
 }
 
+.closing {
+  padding: 4.5rem 1.5rem;
+  background: var(--background);
+  border-top: 1px solid #e5e5e5;
+}
+
+.closingInner {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.closingHeading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.closingText {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+
+.closingText + .closingText {
+  margin-top: 1.25rem;
+}
+
 @media (prefers-color-scheme: dark) {
   .beat {
     border-bottom-color: #262626;
+  }
+
+  .closing {
+    border-top-color: #262626;
   }
 }
 
@@ -113,5 +146,17 @@
   .finaleIntro {
     font-size: 1.2rem;
     margin-bottom: 2.5rem;
+  }
+
+  .closing {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .closingHeading {
+    font-size: 1.35rem;
+  }
+
+  .closingText {
+    font-size: 1rem;
   }
 }

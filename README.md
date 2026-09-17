@@ -3,7 +3,7 @@
 A scrollytelling site exploring what's known about data center water 
 demand in Northeast Ohio, ending on an interactive scenario explorer.
 
-**[Live site](#)** _(link to come after deployment)_
+**[Live site](https://neo-data-center-water-explorer.vercel.app/)**
 
 ## What this is
 

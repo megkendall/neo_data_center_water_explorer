@@ -1,45 +1,65 @@
-# Starter kit for the NE Ohio water/data center scrollytelling site
+# Northeast Ohio Data Center Water Demand
 
-Everything in this folder is meant to be dropped into a fresh project
-directory before you run `claude` for the first time, so Claude Code
-reads `CLAUDE.md` on its very first turn instead of starting from
-nothing.
+A scrollytelling site exploring what's actually known — and not known —
+about data center water demand in Northeast Ohio, ending on an
+interactive scenario explorer.
 
-## What's in here
+**[Live site](#)** _(link to come after deployment)_
 
-- `CLAUDE.md` — read this first. Project context and the non-negotiable
-  analytical guardrails, written for Claude Code to follow automatically
-  every session.
-- `content/` — the two canonical narrative documents, copied verbatim.
-- `data/` — the canonical water-systems and facilities CSVs, plus a new
-  `mapped_facilities.json` with real geocoded coordinates for the 8
-  facilities that have a documented street address (read its `_notes`
-  field — there are two honest caveats in there).
-- `components/ScenarioExplorer.jsx` — a working reference port of the
-  map + calculator logic we validated in chat. Not styled — the logic
-  and the guardrail comments are the point.
-- `PROMPTS.md` — a staged sequence of prompts for Claude Code, phase by
-  phase, from scaffold to deploy.
+## What this is
 
-## How to use it
+Public data on individual data center water use in Northeast Ohio is
+thin: none of seven analytical facility cases have a complete, publicly
+established average or annual water-consumption figure. Rather than
+paper over that gap with industry-average guesses, this project builds a
+standardized comparison instead — four data center size tiers (50–750
+MW) crossed with four water-intensity assumptions (0.05–1.50 L/kWh,
+grounded in real AWS and Equinix disclosures) produce 16 hypothetical
+scenarios, which can then be examined against seven real Northeast Ohio
+water-system contexts (Cleveland, Akron, Canton, and others).
 
-1. Install Claude Code if you haven't:
-   - macOS/Linux/WSL: `curl -fsSL https://claude.ai/install.sh | bash`
-   - Windows: `curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd`
-   - Or via npm (any OS with Node.js installed): `npm install -g @anthropic-ai/claude-code`
-   - Verify: `claude --version`
-2. Create a new empty project folder, copy everything from this starter
-   kit into it.
-3. `cd` into that folder and run `claude`. Log in when prompted.
-4. Open `PROMPTS.md` and work through it phase by phase.
+The site walks through that argument as a five-beat Story Spine
+narrative, then hands it to the reader directly: a real map (Leaflet +
+OpenStreetMap) of the region's data center facilities, paired with a
+calculator that runs the same standardized scenarios against whichever
+water system you pick.
 
-## About Claude Design
+The site's own closing sections, **How the analysis works** and **How I
+built this**, cover the methodology and process in more depth than this
+README does — that's the canonical explanation, written for readers of
+the site itself.
 
-Claude Design (in research preview at claude.ai) is a good place to
-explore the visual/editorial direction — typography, color, the overall
-feel of the scroll — before or alongside coding, since it can hand off
-an implementation directly toward Claude Code. Treat it as the place to
-settle "what does this look like," and Claude Code as the place to
-build "does it actually work, correctly, with real data." Check
-claude.ai for current availability, since this is a newer product and
-access may still be limited to certain plans.
+## Source data and methodology
+
+- [`content/story-spine.md`](content/story-spine.md) — the narrative
+  copy used verbatim on the site, plus the analytical guardrails it's
+  built on.
+- [`content/findings-section-spine.md`](content/findings-section-spine.md) —
+  the underlying findings write-up.
+- [`data/water_systems_master.csv`](data/water_systems_master.csv) — the
+  seven water-system cases.
+- [`data/facilities_master_v1_FINAL.csv`](data/facilities_master_v1_FINAL.csv) —
+  the 21 canonical facilities.
+- [`data/mapped_facilities.json`](data/mapped_facilities.json) — real
+  geocoded coordinates for the 8 facilities with a documented street
+  address (see its `_notes` field for known caveats).
+- [`CLAUDE.md`](CLAUDE.md) — the full source-of-truth hierarchy and
+  non-negotiable analytical guardrails this project (and its AI-assisted
+  build process) was held to throughout.
+
+## Tech stack
+
+- [Next.js](https://nextjs.org/) (App Router), plain CSS — no styling
+  framework
+- [react-leaflet](https://react-leaflet.js.org/) + OpenStreetMap for the
+  interactive map
+- Deployed on [Vercel](https://vercel.com/)
+
+## Running locally
+
+```bash
+npm install
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000).

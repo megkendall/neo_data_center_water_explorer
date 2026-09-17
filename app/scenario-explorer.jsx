@@ -82,13 +82,21 @@ export default function ScenarioExplorer() {
   return (
     <div className={styles.explorer}>
       <div className={styles.mapPane}>
-        <FacilityMap
-          facilities={mapped.facilities}
-          selectedFacilityId={selectedFacilityId}
-          onSelectFacility={selectFacility}
-        />
+        {/* The map is a pointer/touch-oriented visual: pan, zoom, hover, and
+            tap all select a facility exactly like the button list below,
+            which is the fully equivalent, keyboard- and screen-reader-
+            accessible way to do the same thing. Hidden from assistive tech
+            so it doesn't present as a second, less-navigable version of the
+            same control. */}
+        <div aria-hidden="true">
+          <FacilityMap
+            facilities={mapped.facilities}
+            selectedFacilityId={selectedFacilityId}
+            onSelectFacility={selectFacility}
+          />
+        </div>
 
-        <div className={styles.facilityList} role="list" aria-label="Select a facility">
+        <div className={styles.facilityList} role="list" aria-label="Select a facility (same markers shown on the map above)">
           {mapped.facilities.map((f) => (
             <button
               key={f.id}

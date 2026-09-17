@@ -23,7 +23,7 @@
   justify-content: center;
   border: 1px solid #e5e5e5;
   border-radius: 8px;
-  color: #757575;
+  color: #595959;
   font-size: 0.9rem;
 }
 
@@ -39,7 +39,7 @@
   font-size: 0.8rem;
   padding: 0.4rem 0.7rem;
   border-radius: 999px;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #8a8a8a;
   background: var(--background);
   color: var(--foreground);
   cursor: pointer;
@@ -54,7 +54,7 @@
 .mapCaption {
   font-size: 0.78rem;
   line-height: 1.6;
-  color: #757575;
+  color: #595959;
 }
 
 /* Control pane */
@@ -76,7 +76,7 @@
 }
 
 .facilityNote {
-  color: #757575;
+  color: #595959;
 }
 
 .controls {
@@ -99,7 +99,7 @@
   font-weight: 400;
   padding: 0.5rem 0.6rem;
   border-radius: 6px;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #8a8a8a;
   background: var(--background);
   color: var(--foreground);
 }
@@ -122,7 +122,7 @@
 }
 
 .resultRow span {
-  color: #757575;
+  color: #595959;
 }
 
 .resultRow strong {
@@ -133,7 +133,7 @@
 .disclaimer {
   font-size: 0.8rem;
   line-height: 1.6;
-  color: #757575;
+  color: #595959;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -143,10 +143,20 @@
     border-color: #262626;
   }
 
+  /* Lighter, not darker, so these stand out against a dark background --
+     3:1 minimum for interactive control boundaries. Excludes
+     .facilityButtonActive, which keeps its own red selected-state border. */
   .facilityButton,
-  .facilityButtonActive,
   .select {
-    border-color: #333;
+    border-color: #777;
+  }
+
+  .mapCaption,
+  .facilityNote,
+  .resultRow span,
+  .disclaimer,
+  .mapLoading {
+    color: #a3a3a3;
   }
 }
 
@@ -154,5 +164,13 @@
   .explorer {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  /* Below 16px, mobile Safari auto-zooms the whole page on focus to make
+     the (apparently too-small) text legible -- which is what was making
+     the native dropdown options appear "tiny" relative to everything
+     else. 16px avoids that zoom entirely. */
+  .select {
+    font-size: 16px;
   }
 }

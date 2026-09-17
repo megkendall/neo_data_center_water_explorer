@@ -43,6 +43,13 @@
   justify-content: center;
 }
 
+/* Below the sticky-panel breakpoint (see the 800px media query), the
+   shared side panel is hidden and this appears inline within each beat's
+   own section instead -- see .inlineVisual there. */
+.inlineVisual {
+  display: none;
+}
+
 .finale {
   padding: 6rem 1.5rem 7rem;
   background: var(--finale-background);
@@ -63,6 +70,30 @@
 @media (prefers-color-scheme: dark) {
   .beat {
     border-bottom-color: #262626;
+  }
+}
+
+/* Below this width the two-column sticky-scroll layout stops making
+   sense (columns get too narrow to read). The sticky panel is dropped
+   entirely and each beat's visual appears inline in its own section,
+   in normal document flow, right after that beat's text. */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .visualColumn {
+    display: none;
+  }
+
+  .beat {
+    min-height: 0;
+  }
+
+  .inlineVisual {
+    display: block;
+    width: 100%;
+    margin-top: 2.5rem;
   }
 }
 

@@ -62,6 +62,11 @@ export default function Home() {
                 much smaller scale.
               </p>
             </div>
+            {/* Below the sticky-panel breakpoint, each beat's visual
+                appears inline here instead of in the shared side panel. */}
+            <div className={styles.inlineVisual}>
+              <WaterSystemsVisual />
+            </div>
           </section>
 
           {/* Beat 2: "One day" — the power/water disclosure gap across facilities */}
@@ -79,6 +84,9 @@ export default function Home() {
                 established facility-specific WUE. The power story was much
                 easier to see than the water story.
               </p>
+            </div>
+            <div className={styles.inlineVisual}>
+              <FacilitiesVisual />
             </div>
           </section>
 
@@ -98,6 +106,9 @@ export default function Home() {
                 standardized scenarios span 0.05 to 1.50 L/kWh to explore
                 that wide range of possible water intensity.
               </p>
+            </div>
+            <div className={styles.inlineVisual}>
+              <BenchmarkVisual />
             </div>
           </section>
 
@@ -119,6 +130,9 @@ export default function Home() {
                 a standardized demand assumption can take on when placed in
                 a relatively small water-system context.
               </p>
+            </div>
+            <div className={styles.inlineVisual}>
+              <ShalersvilleVisual />
             </div>
           </section>
         </div>

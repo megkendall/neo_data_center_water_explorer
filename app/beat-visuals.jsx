@@ -24,7 +24,7 @@ export function WaterSystemsVisual() {
   return (
     <div className={styles.inner}>
       <h3 className={styles.title}>Seven Northeast Ohio water systems</h3>
-      <ul className={styles.systemList}>
+      <ul className={styles.systemList} aria-label="Seven Northeast Ohio water systems">
         {WATER_SYSTEMS.map((s) => (
           <li key={s.id} className={styles.systemRow}>
             <span className={styles.systemName}>{s.name}</span>
@@ -55,7 +55,17 @@ export function FacilitiesVisual() {
       <h3 className={styles.title}>
         Seven analytical facilities — average/annual water use
       </h3>
-      <table className={styles.table}>
+      <table className={styles.table} aria-label="Seven analytical facilities — average/annual water use">
+        <thead>
+          <tr>
+            <th scope="col" className={styles.tableName}>
+              Facility
+            </th>
+            <th scope="col" className={styles.tableStatus}>
+              Average/annual water use
+            </th>
+          </tr>
+        </thead>
         <tbody>
           {ANALYTICAL_FACILITIES.map((f) => (
             <tr key={f.id}>

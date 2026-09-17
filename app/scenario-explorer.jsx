@@ -106,7 +106,7 @@ export default function ScenarioExplorer() {
 
         <p className={styles.mapCaption}>
           Showing the 8 of 21 facilities with a documented street address on
-          file — the other 13 genuinely have none publicly recorded.
+          file — the other 13 have none publicly recorded.
           Bitdeer Shalersville&rsquo;s marker is geocoded to a &ldquo;Mantua,
           OH&rdquo; postal address (a rural ZIP-routing quirk), not
           &ldquo;Shalersville&rdquo; itself — treat its exact position as

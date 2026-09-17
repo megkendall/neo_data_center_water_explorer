@@ -1,8 +1,7 @@
 # Northeast Ohio Data Center Water Demand
 
-A scrollytelling site exploring what's actually known — and not known —
-about data center water demand in Northeast Ohio, ending on an
-interactive scenario explorer.
+A scrollytelling site exploring what's known about data center water 
+demand in Northeast Ohio, ending on an interactive scenario explorer.
 
 **[Live site](#)** _(link to come after deployment)_
 

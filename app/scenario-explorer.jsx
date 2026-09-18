@@ -115,10 +115,9 @@ export default function ScenarioExplorer() {
         <p className={styles.mapCaption}>
           Showing the 8 of 21 facilities with a documented street address.
           Select a facility above to locate it on the map; pan or zoom to
-          explore nearby sites.
-          <br />
-          Use the controls on the right to explore standardized
-          water-demand scenarios across different water-system contexts.
+          explore nearby sites. Use the controls on the right to explore
+          standardized water-demand scenarios across different
+          water-system contexts.
         </p>
       </div>
 

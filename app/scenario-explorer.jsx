@@ -113,15 +113,11 @@ export default function ScenarioExplorer() {
         </div>
 
         <p className={styles.mapCaption}>
-          Showing the 8 of 21 facilities with a documented street address on
-          file — the other 13 have none publicly recorded.
-          Bitdeer Shalersville&rsquo;s marker is geocoded to a &ldquo;Mantua,
-          OH&rdquo; postal address (a rural ZIP-routing quirk), not
-          &ldquo;Shalersville&rdquo; itself — treat its exact position as
-          approximate pending verification against the site plan. The four
-          Akron-area points (Viking Data Centers Akron, Lumen Akron 2,
-          FairlawnGig, Bay Pointe Tech) sit close together — pan or zoom in,
-          or use the list above to select any of them precisely.
+          Showing the 8 of 21 facilities with a documented street address.
+          Select a facility above to locate it on the map; pan or zoom to
+          explore nearby sites. Use the controls on the right to explore
+          standardized water-demand scenarios across different
+          water-system contexts.
         </p>
       </div>
 

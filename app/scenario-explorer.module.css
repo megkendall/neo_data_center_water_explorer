@@ -75,10 +75,6 @@
   color: var(--foreground);
 }
 
-.facilityNote {
-  color: #595959;
-}
-
 .controls {
   display: flex;
   flex-direction: column;
@@ -152,7 +148,6 @@
   }
 
   .mapCaption,
-  .facilityNote,
   .resultRow span,
   .disclaimer,
   .mapLoading {

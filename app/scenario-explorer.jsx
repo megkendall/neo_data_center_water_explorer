@@ -149,12 +149,6 @@ export default function ScenarioExplorer() {
             {facility.water_provider_status === "reported_site_provider"
               ? "Water provider is evidenced for this facility — system selector updated to match."
               : "Water provider not publicly established for this facility — system selector below is exploratory only, not a match."}
-            {facility.note && (
-              <>
-                <br />
-                <span className={styles.facilityNote}>Note: {facility.note}</span>
-              </>
-            )}
           </div>
         )}
 
